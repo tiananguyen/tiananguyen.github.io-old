@@ -526,6 +526,21 @@ body {
   background-attachment: fixed;
   padding: 70px;
 }
+.update7 {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('../img/move.jpg');
+  text-align: center;
+  color: black;
+  background-attachment: fixed;
+  padding: 70px;
+}
 .pics{
     padding-bottom: 20px;
 }
