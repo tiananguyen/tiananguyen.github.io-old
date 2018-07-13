@@ -2,9 +2,22 @@
 PDK.init({ appId: '4976224077197881480', cookie: true });
 
 // Pinterest log in
-function logIn() {
-  PDK.login(function(response){
-    console.log(response);
+function login() {
+  PDK.login(function(response) {
+    console.log(response); //TEST to see response status
+    // Display the status of their login
+    if (response.status === 'connected') {
+      document.getElementById('show').innerHTML = 'You are connected! We will now be deleting duplicate pins.';
+      // Look through the boards
+      myBoards(response);
+      // Look for duplicate pins & delete
+      getPins(data, response);
+      findDupPins(data);
+    } else if (response.status === 'not_authorized') {
+      document.getElementById('show').innerHTML = 'You are not connected. Please try again.';
+    } else {
+      document.getElementById('show').innerHTML = 'You are logged into any Pinterest account.';
+    }
   });
 }
 
@@ -57,10 +70,10 @@ function deletePin(data, callback) {
 
 // Find duplicate pins
 function findDupPins(data) {
-  for(int i = 0; i < pins.length; i++) {
-    for(int j = 0; j < pins.length; j++) {
-      if(j != i) {
-        if(pins[i] == pins[j]) {
+  for (int i = 0; i < pins.length; i++) {
+    for (int j = 0; j < pins.length; j++) {
+      if (j != i) {
+        if (pins[i] == pins[j]) {
           deletePin(pins[i], function(response));
         }
       }
