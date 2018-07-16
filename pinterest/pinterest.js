@@ -42,7 +42,7 @@ function pinterest() {
       var user_id;
       PDK.request('/v1/me/', 'GET', { fields: 'username' }, function(response) { // Get user information
           user_id = response;
-      }
+      });
       user_id = 'tiananguyen99'; // TEMP USERNAME
       // Ask user for which board user wants to search
       var board_id = prompt("Which board do you want to search?");
