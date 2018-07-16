@@ -1,26 +1,6 @@
 // Initialize once with app id
 PDK.init({ appId: '4976224077197881480', cookie: true });
 
-// Pinterest log in
-function login() {
-  PDK.login({ scope : 'write_public, read_public' }, function(response) {
-    console.log(response); //TEST to see response status
-    // Display the status of their login
-    if (response.status === 'connected') {
-      document.getElementById('show').innerHTML = 'You are connected! We will now be deleting duplicate pins.';
-      // Look through the boards
-      myBoards(response);
-      // Look for duplicate pins & delete
-      getPins(data, response);
-      findDupPins(data);
-    } else if (response.status === 'not_authorized') {
-      document.getElementById('show').innerHTML = 'You are not connected. Please try again.';
-    } else {
-      document.getElementById('show').innerHTML = 'You are logged into any Pinterest account.';
-    }
-  });
-}
-
 // Determine auth state of the user
 function loggedIn() {
   return !!PDK.getSession();
@@ -29,38 +9,6 @@ function loggedIn() {
 // Pinterest log out
 function logOut() {
   PDK.logout();
-}
-
-// Return's the  authorized user’s profile, boards and pins
-function userInfo() {
-  PDK.me();
-}
-
-// Request a search for User's boards
-function myBoards(callback) {
-  PDK.me('boards', { fields: 'id,name,image[small]' }, callback);
-}
-
-// Return description and image of the pin
-var params = {
-  fields: 'note,image'
-};
-
-// Retrieve pins on the board
-var pins = [];
-function getPins(data, callback) {
-  PDK.request('/boards/Techies/pins', 'GET', function (response) { // TEMP BOARD : Techies
-    if (!response || response.error) {
-      alert('Error occurred');
-    } else {
-      pins = pins.concat(response.data);
-      console.log(pins); // TEST to see if pins are showing up
-      if (response.hasNext) {
-        response.next(); // this will recursively go to this same callback
-      }
-    }
-  });
-  return pins;
 }
 
 // Deleting a pin
@@ -81,7 +29,6 @@ function findDupPins(data) {
   }
 }
 
-
 function pinterest() {
   // Function to log into user's Pinterest
   PDK.login({ scope : 'write_public, read_public' }, function(response) {
@@ -92,9 +39,16 @@ function pinterest() {
       document.getElementById('show').innerHTML = 'You are not connected. Please try again.';
     } else {
       document.getElementById('show').innerHTML = 'You are connected! We will now be deleting duplicate pins.';
+      var user_id;
+      PDK.request('/v1/me/', 'GET', { fields: 'username' }, function(response) { // Get user information
+          user_id = response;
+      }
+      user_id = 'tiananguyen99'; // TEMP USERNAME
+      // Ask user for which board user wants to search
+      var board_id = prompt("Which board do you want to search?");
+      board_id='cooking-sessions'; // TEMP BOARD
       var pins = [];
-      var board_id='Cooking Sessions'; // TEMP BOARD
-      PDK.request('/boards/'+board_id+'/pins/', function (response) {  // Get board information
+      PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small]' }, function (response) {  // Get board information
           if (!response || response.error) {
             alert('Error occurred');
           } else {
