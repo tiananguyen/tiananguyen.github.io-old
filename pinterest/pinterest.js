@@ -18,8 +18,8 @@ function deletePin(data, callback) {
 
 // Find duplicate pins
 function findDupPins(data) {
-  for (var i = 0; i < pins.length; i++) {
-    for (var j = 0; j < pins.length; j++) {
+  for (var i = 0; i < data.length; i++) {
+    for (var j = 0; j < data.length; j++) {
       if (j != i) {
         if (pins[i] == pins[j]) {
           deletePin(pins[i], function(response){});
