@@ -86,7 +86,7 @@ function pinterest() {
   // Function to log into user's Pinterest
   PDK.login({ scope : 'write_public, read_public' }, function(response) {
     console.log(response);  // TEST TO SEE STATUS
-    
+
     // Display the status of their login
     if (response.error || !response) {
       document.getElementById('show').innerHTML = 'You are not connected. Please try again.';
@@ -104,11 +104,13 @@ function pinterest() {
             }
           }
       });
-      document.getElementById('show').innerHTML = pins;
-      
+      // Display pins
+      for(var i = 0; i< pins.length; i++) {
+        document.getElementById('show').innerHTML = pins[i];
+      }
+
       // Look for duplicate pins & delete
-      // getPins(data, response);
-      // findDupPins(data);
+      findDupPins(pins);
     }
   });
 }
