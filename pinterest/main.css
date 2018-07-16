@@ -28,3 +28,8 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+.show {
+  color: white;
+  font-size: 17px;
+}
