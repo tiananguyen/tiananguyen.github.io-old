@@ -1,8 +1,9 @@
 .btn {
-  background-color: red;
+  background-color: white;
+  opacity: 0.65;
   border: none;
-  color: white;
-  padding: 24px 40px;
+  color: black;
+  padding: 15px 50px;
   text-align: center;
   font-size: 20px;
   margin: 4px 2px;
@@ -14,11 +15,16 @@
 }
 
 .btn:hover {
-  background-color: white;
-  color: red;
+  background-color: darkred;
+  color: white;
+  opacity: 0.8;
 }
 
-.main {
-  background-image: url('../img/background2.png');
+body {
+  background: url('background.jpg') no-repeat fixed center;
   background-size: cover;
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
 }
