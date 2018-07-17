@@ -40,7 +40,7 @@ function pinterest() {
     } else {
       document.getElementById('show').innerHTML = 'You are connected! We will now be deleting duplicate pins.';
       var user_id;
-      PDK.request('/v1/me/', 'GET', { fields: 'username' }, function(response) { // Get user information
+      PDK.me({ fields: 'username' }, function(response) { // Get user information
           user_id = response;
           console.log(response); // TEST
       });
