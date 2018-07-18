@@ -64,9 +64,10 @@ function pinterest() {
           }
       });
       // Display pins
-      for(var i = 0; i< pins.length; i++) {
+      document.getElementById('show').innerHTML = pins;
+      /* for(var i = 0; i< pins.length; i++) {
         document.getElementById('show').innerHTML = pins[i];
-      }
+      } */
 
       // Look for duplicate pins & delete
       for (var i = 0; i < pins.length; i++) {
