@@ -58,7 +58,7 @@ function pinterest() {
             alert('Error occurred');
           } else {
             pins = pins.concat(response.data);
-            document.getElementById('show').innerHTML = response.data; // Display pins
+            document.getElementById('show').innerHTML = response; // Display pins
             if (response.hasNext) {
               response.next();
             }
@@ -73,7 +73,7 @@ function pinterest() {
       // Look for duplicate pins & delete
       for (var i = 0; i < pins.length; i++) {
         for (var j = 0; j < pins.length; j++) {
-          console.log(pins[j]); // TEST
+          // console.log(pins[j]); // TEST
           if (j != i) {
             if (pins[i] == pins[j]) {
               deletePin(pins[i], function(response){});
