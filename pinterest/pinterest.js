@@ -58,17 +58,17 @@ function pinterest() {
             alert('Error occurred');
           } else {
             pins = pins.concat(response.data);
-            document.getElementById('show').innerHTML = response.data; // TEST
+            document.getElementById('show').innerHTML = response.data; // Display pins
             if (response.hasNext) {
               response.next();
             }
           }
       });
-      // Display pins
-      // document.getElementById('show').innerHTML = pins;
+      /* Display pins
+      document.getElementById('show').innerHTML = pins;
       for(var i = 0; i< pins.length; i++) {
         document.getElementById('show').innerHTML = pins[i];
-      }
+      } */
 
       // Look for duplicate pins & delete
       for (var i = 0; i < pins.length; i++) {
