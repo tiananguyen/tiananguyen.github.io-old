@@ -43,6 +43,7 @@ function pinterest() {
       PDK.me({ fields: 'username' }, function(response) { // Get user information
           user_id = response;
           console.log(response); // TEST
+          console.log("Test 2"); // TEST
       });
       user_id = 'tiananguyen99'; // TEMP USERNAME
       // Ask user for which board user wants to search
@@ -53,7 +54,6 @@ function pinterest() {
       PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small]' }, function (response) {  // Get board information
           console.log(response); // TEST
           console.log("Test 4"); // TEST
-          document.getElementById('show').innerHTML = response; // Display pins
           if (!response || response.error) {
             alert('Error occurred');
           } else {
