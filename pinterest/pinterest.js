@@ -45,10 +45,10 @@ function pinterest() {
           console.log(response); // TEST
           console.log("Test 2"); // TEST
       });
-      user_id = 'tiananguyen99'; // TEMP USERNAME
+      user_id = 'tiananguyen99'; // TEST USERNAME
       // Ask user for which board user wants to search
       var board_id = prompt("Which board do you want to search?");
-      // board_id='cooking-sessions'; // TEMP BOARD
+      board_id='cooking-sessions'; // TEST BOARD
       var pins = [];
       console.log("Test 3"); // TEST
       PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small]' }, function (response) {  // Get board information
@@ -58,6 +58,10 @@ function pinterest() {
             alert('Error occurred');
           } else {
             pins = pins.concat(response.data);
+            // Display pins
+            for(var i = 0; i< pins.length; i++) {
+              document.getElementById('show').innerHTML = pins[i];
+            }
             if (response.hasNext) {
               response.next();
             }
