@@ -40,11 +40,11 @@ function pinterest() {
     } else {
       document.getElementById('show').innerHTML = 'You are connected! We will now be deleting duplicate pins.';
       var user_id;
-      PDK.me({ fields: 'username' }, function(response) { // Get user information
+      /*PDK.me({ fields: 'username' }, function(response) { // Get user information
           user_id = response;
           console.log(response); // TEST
           console.log("Test 2"); // TEST
-      });
+      });*/
       user_id = 'tiananguyen99'; // TEMP USERNAME
       // Ask user for which board user wants to search
       var board_id = prompt("Which board do you want to search?");
