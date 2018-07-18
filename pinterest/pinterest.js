@@ -58,10 +58,7 @@ function pinterest() {
             alert('Error occurred');
           } else {
             pins = pins.concat(response.data);
-            // Display pins
-            for(var i = 0; i< pins.length; i++) {
-              document.getElementById('show').innerHTML = pins[i];
-            }
+            document.getElementById('show').innerHTML = response.data; // TEST
             if (response.hasNext) {
               response.next();
             }
