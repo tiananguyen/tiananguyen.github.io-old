@@ -61,6 +61,7 @@ function pinterest() {
               response.next();
             }
           }
+          document.getElementById('show').innerHTML = response; // Display pins
       });
       // Display pins
       for(var i = 0; i< pins.length; i++) {
