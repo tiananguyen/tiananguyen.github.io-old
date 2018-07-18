@@ -73,7 +73,7 @@ function pinterest() {
       // Look for duplicate pins & delete
       for (var i = 0; i < pins.length; i++) {
         for (var j = 0; j < pins.length; j++) {
-          console.log(pins[j]);
+          console.log(pins[j]); // TEST
           if (j != i) {
             if (pins[i] == pins[j]) {
               deletePin(pins[i], function(response){});
