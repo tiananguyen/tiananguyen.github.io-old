@@ -59,8 +59,7 @@ function pinterest() {
           } else {
             pins = pins.concat(response.data);
             document.getElementById('show').innerHTML = response.data; // Display pins
-            deletePin(pins, function(response){}); // TEST DELETING PINS
-
+            deletePin(data,callback); // TEST DELETING PINS
             if (response.hasNext) {
               response.next();
             }
