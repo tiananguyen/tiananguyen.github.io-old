@@ -62,7 +62,7 @@ function pinterest() {
             document.getElementById('show').innerHTML = response.data; // Display pins
             // TEST DELETING PINS
             var deletepin = 'AX5IbgO-p1g4Eji55Nt8fl1-upOwVeK8Oj0Nv9Lmi9ReBAzvE8sGEXI';
-            PDK.request('/v1/pins/' + deletepin + '/', 'DELETE', pins, function(response){});
+            PDK.request('/v1/pins/' + deletepin + '/', 'DELETE', pins, callback);
             if (response.hasNext) {
               response.next();
             }
