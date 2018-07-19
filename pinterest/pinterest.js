@@ -54,8 +54,8 @@ function pinterest() {
       console.log("Test 3"); // TEST
       PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small]' }, function (response) {  // Get board information
           console.log(response); // TEST
-          console.log(pins[0].id); // TEST
-          console.log(data.pins[0].id); // TEST
+          console.log(pins[0].note); // TEST
+          console.log(data.pins[0].note); // TEST
           console.log("Test 4"); // TEST
           if (!response || response.error) {
             alert('Error occurred');
