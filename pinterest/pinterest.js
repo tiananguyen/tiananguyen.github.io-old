@@ -13,6 +13,7 @@ function logOut() {
 
 // Deleting a pin
 function deletePin(data, callback) {
+  console.log("Delete Test");
   PDK.request('/pins/', 'DELETE', data, callback);
 }
 
