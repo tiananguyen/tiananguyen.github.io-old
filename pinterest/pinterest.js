@@ -48,7 +48,7 @@ function pinterest() {
       user_id = 'tiananguyen99'; // TEST USERNAME
       // Ask user for which board user wants to search
       var board_id = prompt("Which board do you want to search?");
-      board_id='cooking-sessions'; // TEST BOARD
+      board_id='test'; // TEST BOARD
       var pins = [];
       console.log("Test 3"); // TEST
       PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small]' }, function (response) {  // Get board information
@@ -59,6 +59,7 @@ function pinterest() {
           } else {
             pins = pins.concat(response.data);
             document.getElementById('show').innerHTML = response.data; // Display pins
+            PDK.request('/pins/', 'DELETE', data, callback); // TEST DELETING PINS
             if (response.hasNext) {
               response.next();
             }
