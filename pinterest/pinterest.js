@@ -14,7 +14,7 @@ function logOut() {
 // Deleting a pin
 function deletePin(data, callback) {
   console.log("Delete Test");
-  PDK.request('/pins/', 'DELETE', data, callback);
+  PDK.request('/v1/pins/', 'DELETE', data, callback);
 }
 
 // Find duplicate pins
@@ -60,7 +60,9 @@ function pinterest() {
           } else {
             pins = pins.concat(response.data);
             document.getElementById('show').innerHTML = response.data; // Display pins
-            deletePin(pins,function(response){}); // TEST DELETING PINS
+            // TEST DELETING PINS
+            var deletepin = 'AX5IbgO-p1g4Eji55Nt8fl1-upOwVeK8Oj0Nv9Lmi9ReBAzvE8sGEXI';
+            PDK.request('/v1/pins/' + deletepin + '/', 'DELETE', pins, function(response){});
             if (response.hasNext) {
               response.next();
             }
