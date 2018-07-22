@@ -56,6 +56,13 @@ function pinterest() {
           console.log(response); // TEST
           console.log(response.data[0].note); // TEST
           console.log("Test 4"); // TEST
+
+          // Look for duplicate pins
+          for (var i = 0; i < response.data.length; i++) {
+            for (var j = 0; j < response.data.length; j++) {
+              if ((j != i) && (response.data[j].note == response.data[i].note)) {
+                PDK.request('/v1/pins/' + response.data[i] + '/', 'DELETE', data, callback);
+          
           if (!response || response.error) {
             alert('Error occurred');
           } else {
