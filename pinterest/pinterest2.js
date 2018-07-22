@@ -113,3 +113,27 @@ function getPins(data, callback) {
   });
   return pins;
 }
+
+// Deleting a pin
+function deletePin(data, callback) {
+  console.log("Delete Test"); // TEST
+  PDK.request('/v1/pins/', 'DELETE', data, callback);
+}
+
+// Display pins
+document.getElementById('show').innerHTML = pins;
+for(var i = 0; i< pins.length; i++) {
+  document.getElementById('show').innerHTML = pins[i];
+}
+
+// Look for duplicate pins & delete
+for (var i = 0; i < pins.length; i++) {
+  for (var j = 0; j < pins.length; j++) {
+    // console.log(pins[j]); // TEST
+    if (j != i) {
+      if (pins[i] == pins[j]) {
+        deletePin(pins[i], function(response){});
+      }
+    }
+  }
+}

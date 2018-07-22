@@ -11,12 +11,6 @@ function logOut() {
   PDK.logout();
 }
 
-// Deleting a pin
-function deletePin(data, callback) {
-  console.log("Delete Test"); // TEST
-  PDK.request('/v1/pins/', 'DELETE', data, callback);
-}
-
 // Find duplicate pins
 function findDupPins(data) {
   for (var i = 0; i < data.length; i++) {
@@ -53,9 +47,10 @@ function pinterest() {
       var pins = [];
       console.log("Test 3"); // TEST
       PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small]' }, function (response) {  // Get board information
-          console.log(response); // TEST
-          console.log(response.data[0].id); // TEST
-          console.log("Test 4"); // TEST
+          // TEST
+          console.log(response);
+          console.log(response.data[0].id);
+          console.log("Test 4");
 
           // Look for duplicate pins
           for (var i = 0; i < response.data.length; i++) {
@@ -66,35 +61,17 @@ function pinterest() {
             }
           }
 
+          // Get next pins
           if (!response || response.error) {
             alert('Error occurred');
           } else {
             pins = pins.concat(response.data);
-            document.getElementById('show').innerHTML = response.data; // Display pins
-            // TEST DELETING PINS
-            // PDK.request('/v1/pins/AX5IbgO-p1g4Eji55Nt8fl1-upOwVeK8Oj0Nv9Lmi9ReBAzvE8sGEXI/', 'DELETE', pins, function(response){});
+            document.getElementById('show').innerHTML = response.data[0].image; // Display pins
             if (response.hasNext) {
               response.next();
             }
           }
       });
-      /* Display pins
-      document.getElementById('show').innerHTML = pins;
-      for(var i = 0; i< pins.length; i++) {
-        document.getElementById('show').innerHTML = pins[i];
-      } */
-
-      // Look for duplicate pins & delete
-      for (var i = 0; i < pins.length; i++) {
-        for (var j = 0; j < pins.length; j++) {
-          // console.log(pins[j]); // TEST
-          if (j != i) {
-            if (pins[i] == pins[j]) {
-              deletePin(pins[i], function(response){});
-            }
-          }
-        }
-      }
     }
   });
 }
