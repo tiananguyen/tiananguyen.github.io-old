@@ -54,7 +54,7 @@ function pinterest() {
       console.log("Test 3"); // TEST
       PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small]' }, function (response) {  // Get board information
           console.log(response); // TEST
-          console.log(response.data[0].note); // TEST
+          console.log(response.data[0].id); // TEST
           console.log("Test 4"); // TEST
 
           // Look for duplicate pins
@@ -62,6 +62,9 @@ function pinterest() {
             for (var j = 0; j < response.data.length; j++) {
               if ((j != i) && (response.data[j].note == response.data[i].note)) {
                 PDK.request('/v1/pins/' + response.data[i].id + '/', 'DELETE', data, callback);
+              }
+            }
+          }
 
           if (!response || response.error) {
             alert('Error occurred');
