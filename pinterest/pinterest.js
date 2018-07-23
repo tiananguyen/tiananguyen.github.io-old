@@ -46,7 +46,7 @@ function pinterest() {
       // board_id='test'; // TEST BOARD
       var pins = [];
       console.log("Test 3"); // TEST
-      PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'url,id,note,image[small]' }, function (response) {  // Get board information
+      PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small]' }, function (response) {  // Get board information
           // TEST
           console.log(response);
           // console.log(response.data[0].url);
