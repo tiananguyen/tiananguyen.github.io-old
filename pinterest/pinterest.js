@@ -56,10 +56,8 @@ function pinterest() {
           for (var i = 0; i < response.data.length; i++) {
             for (var j = i + 1; j < response.data.length; j++) {
               if ((j != i) && (response.data[j].note == response.data[i].note)) {
-                for (var k = j; k < response.data.length; k++) {
-                  PDK.request('/v1/pins/' + response.data[k].id + '/', 'DELETE', response.data, function(response){});
+                  PDK.request('/v1/pins/' + response.data[j].id + '/', 'DELETE', response.data, function(response){});
                 }
-                j--;
               }
             }
           }
