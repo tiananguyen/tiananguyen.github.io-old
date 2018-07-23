@@ -57,7 +57,6 @@ function pinterest() {
             for (var j = i + 1; j < response.data.length; j++) {
               if ((j != i) && (response.data[j].note == response.data[i].note)) {
                   PDK.request('/v1/pins/' + response.data[j].id + '/', 'DELETE', response.data, function(response){});
-                }
               }
             }
           }
