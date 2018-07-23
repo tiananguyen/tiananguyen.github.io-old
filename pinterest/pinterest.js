@@ -66,6 +66,7 @@ function pinterest() {
             alert('Error occurred');
           } else {
             pins = pins.concat(response.data);
+            pins = document.getElementById('showPins');
             document.getElementById('show').innerHTML = response.data[0].image; // Display pins
             if (response.hasNext) {
               response.next();
