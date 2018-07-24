@@ -32,6 +32,7 @@ function pinterest() {
       var user_id = prompt("Please enter your username below");
       var board_id = prompt("Which board do you want to search?");
       var pins = [];
+      var pinsDelete = [];
 
       console.log("Test 3"); // TEST
 
@@ -45,6 +46,7 @@ function pinterest() {
             for (var j = i + 1; j < response.data.length; j++) {
               if ((j != i) && (response.data[j].note == response.data[i].note)) {
                   PDK.request('/v1/pins/' + response.data[j].id + '/', 'DELETE', response.data, function(response){});
+                  pinsDelete = pinsDelete.concat(response.data[j]);
               }
             }
           }
@@ -54,8 +56,8 @@ function pinterest() {
             alert('Error occurred');
           } else {
             pins = pins.concat(response.data);
-            pins = document.getElementById('showPins');
-            document.getElementById('show').innerHTML = response.data[0].image; // Display pins
+            pinsDelete = document.getElementById('showPins');
+            document.getElementById('show').innerHTML = pinsDelete; // Display pins
             if (response.hasNext) {
               response.next();
             }
