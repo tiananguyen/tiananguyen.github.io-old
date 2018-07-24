@@ -11,22 +11,10 @@ function logOut() {
   PDK.logout();
 }
 
-// Find duplicate pins
-function findDupPins(data) {
-  for (var i = 0; i < data.length; i++) {
-    for (var j = 0; j < data.length; j++) {
-      if (j != i) {
-        if (pins[i] == pins[j]) {
-          deletePin(pins[i], function(response){});
-        }
-      }
-    }
-  }
-}
-
+// Search through pins and delete duplicates
 function pinterest() {
-  // Function to log into user's Pinterest
-  PDK.login({ scope : 'write_public, read_public' }, function(response) {
+  PDK.login({ scope : 'write_public, read_public' }, function(response) {   // Function to log into user's Pinterest
+
     console.log(response);  // TEST
 
     // Display the status of their login
@@ -34,22 +22,23 @@ function pinterest() {
       document.getElementById('show').innerHTML = 'You are not connected. Please try again.';
     } else {
       document.getElementById('show').innerHTML = 'You are connected! We will now be deleting duplicate pins.';
+
       PDK.me({ fields: 'username' }, function(response) { // Get user information
           console.log(response); // TEST
           console.log("Test 2"); // TEST
       });
-      // user_id = 'tiananguyen99'; // TEST USERNAME
+
       // Ask user for which board user wants to search\
       var user_id = prompt("Please enter your username below");
       var board_id = prompt("Which board do you want to search?");
-      // board_id='test'; // TEST BOARD
       var pins = [];
+
       console.log("Test 3"); // TEST
+
       PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small]' }, function (response) {  // Get board information
-          // TEST
-          console.log(response);
-          // console.log(response.data[0].url);
-          console.log("Test 4");
+
+          console.log(response); // TEST
+          console.log("Test 4"); // TEST
 
           // Look for duplicate pins
           for (var i = 0; i < response.data.length; i++) {
