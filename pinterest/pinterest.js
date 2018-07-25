@@ -46,7 +46,8 @@ function pinterest() {
             for (var j = i + 1; j < response.data.length; j++) {
               if ((j != i) && (response.data[j].note == response.data[i].note)) {
                 console.log(response.data[j].url); // TEST
-                document.getElementById("display").href = response.data[j].url; // Display pins
+                var newURL = response.data[j].url;
+                document.getElementById("display").href = newURL; // Display pins
                 pinsDelete = pinsDelete.concat(response.data[j]);
                 PDK.request('/v1/pins/' + response.data[j].id + '/', 'DELETE', response.data, function(response){});
               }
