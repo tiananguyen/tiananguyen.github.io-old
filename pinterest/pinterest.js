@@ -65,6 +65,6 @@ function pinterest() {
           }
       });
     }
-    document.getElementById('show').innerHTML = 'Duplicate pins deleted. Check your Pinterest board!';
+    //document.getElementById('show').innerHTML = 'Duplicate pins deleted. Check your Pinterest board!';
   });
 }
