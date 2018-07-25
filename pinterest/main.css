@@ -1,6 +1,6 @@
 .btn {
   background-color: white;
-  opacity: 0.65;
+  opacity: 0.77;
   border: none;
   color: black;
   padding: 15px 50px;
@@ -9,15 +9,15 @@
   margin: 4px 2px;
   transition: 0.3s;
   top: 45%;
-  left: 50%;
-  right: 50%;
+  left: 42%;
+  right: 47%;
   position: fixed;
 }
 
 .btn:hover {
   background-color: darkred;
   color: white;
-  opacity: 0.8;
+  opacity: 0.77;
 }
 
 .main {
