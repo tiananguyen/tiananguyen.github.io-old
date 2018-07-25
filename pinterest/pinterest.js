@@ -21,12 +21,12 @@ function pinterest() {
     if (response.error || !response) {
       document.getElementById('show').innerHTML = 'You are not connected. Please try again.';
     } else {
-      document.getElementById('show').innerHTML = 'You are connected! We will now begin the process of deleting duplicate pins.';
 
       PDK.me({ fields: 'username' }, function(response) { // Get user information
           console.log(response); // TEST
           console.log("Test 2"); // TEST
       });
+      document.getElementById('show').innerHTML = 'You are connected! We will now begin the process of deleting duplicate pins.';
 
       // Ask user for which board user wants to search\
       var user_id = prompt("Please enter your username below");
