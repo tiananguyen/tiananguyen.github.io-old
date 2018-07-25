@@ -20,8 +20,20 @@
   opacity: 0.8;
 }
 
-body {
+.main {
   background: url('background.jpg') no-repeat fixed center;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-size: 17px;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+.pins {
+  background: url('pinsback2.jpg') no-repeat fixed center;
   background-size: cover;
   position: relative;
   width: 100%;
