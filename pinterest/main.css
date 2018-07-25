@@ -38,7 +38,7 @@
   background-color: darkred;
   color: white;
   opacity: 0.77;
-} 
+}
 
 .btn1 , .btn2 {
 display:inline-block;
@@ -74,5 +74,4 @@ display:inline-block;
   left: 42%;
   right: 47%;
   width: 80%;
-
 }
