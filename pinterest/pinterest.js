@@ -57,7 +57,7 @@ function pinterest() {
           } else {
             pins = pins.concat(response.data);
             var output = document.getElementById('output');
-            pinsDelete.innerHTML = pins;
+            output.innerHTML = pinsDelete;
             // document.getElementById('show').innerHTML = pinsDelete; // Display pins
             if (response.hasNext) {
               response.next();
