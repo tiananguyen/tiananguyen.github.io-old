@@ -45,6 +45,7 @@ function pinterest() {
           for (var i = 0; i < response.data.length; i++) {
             for (var j = i + 1; j < response.data.length; j++) {
               if ((j != i) && (response.data[j].note == response.data[i].note)) {
+                document.getElementById('pinURL').value = response.data[j].url; // Display pins
                 pinsDelete = pinsDelete.concat(response.data[j]);
                 PDK.request('/v1/pins/' + response.data[j].id + '/', 'DELETE', response.data, function(response){});
               }
@@ -56,9 +57,8 @@ function pinterest() {
             alert('Error occurred');
           } else {
             pins = pins.concat(response.data);
-            var output = document.getElementById('output');
-            output.innerHTML = pinsDelete;
-            // document.getElementById('show').innerHTML = pinsDelete; // Display pins
+            // var output = document.getElementById('output');
+            // output.innerHTML = pinsDelete;
             if (response.hasNext) {
               response.next();
             }
