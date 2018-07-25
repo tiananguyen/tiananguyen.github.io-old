@@ -1,4 +1,4 @@
-.btn {
+ .btn {
   background-color: white;
   opacity: 0.77;
   border: none;
@@ -8,10 +8,9 @@
   font-size: 20px;
   margin: 4px 2px;
   transition: 0.3s;
-  top: 45%;
+  top: 40%;
   left: 42%;
   right: 47%;
-  position: fixed;
 }
 
 .btn:hover {
@@ -20,8 +19,33 @@
   opacity: 0.77;
 }
 
+.btn2 {
+  background-color: white;
+  opacity: 0.77;
+  border: none;
+  color: black;
+  padding: 15px 50px;
+  text-align: center;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition: 0.3s;
+  top: 40%;
+  left: 42%;
+  right: 47%;
+}
+
+.btn2:hover {
+  background-color: darkred;
+  color: white;
+  opacity: 0.77;
+} 
+
+.btn1 , .btn2 {
+display:inline-block;
+}
+
 .main {
-  background: url('back1.jpg') no-repeat fixed center;
+  background: url('sky.jpg') no-repeat fixed center;
   background-size: cover;
   position: relative;
   width: 100%;
@@ -33,7 +57,7 @@
 }
 
 .pins {
-  background: url('back2.jpg') no-repeat fixed center;
+  background: url('sky2.jpg') no-repeat fixed center;
   background-size: cover;
   position: relative;
   width: 100%;
@@ -42,4 +66,13 @@
   color: #05142d;
   font-size: 17px;
   font-family: Tahoma, Geneva, sans-serif;
+}
+
+.pinURL {
+  text-align: center;
+  top: 40%;
+  left: 42%;
+  right: 47%;
+  width: 80%;
+
 }
