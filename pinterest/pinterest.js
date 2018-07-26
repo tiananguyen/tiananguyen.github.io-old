@@ -14,7 +14,7 @@ function logOut() {
 // Search through pins and delete duplicates
 function pinterest() {
   PDK.login({ scope : 'write_public, read_public' }, function(response) {   // Function to log into user's Pinterest
-    console.log("Successful login! Here is the login information :")
+    console.log("Successful login! Here is the login information: ")
     console.log(response);
 
     // Display the status of their login
@@ -34,7 +34,14 @@ function pinterest() {
       var pins = [];
       var pinsDelete = [];
 
-      PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small],url' }, function (response) {  // Get board information
+      PDK.request('/boards/'+ user_id +'/'+ board_id +'/', { fields: 'id,name,url' }, function (response) {  // Get board information
+          console.log("Here is information about the board: ");
+          console.log(response);
+
+          // Display board
+          document.getElementById("board").href = response.data.url;
+      }
+      PDK.request('/boards/'+ user_id +'/'+ board_id +'/pins/', { fields: 'note,image[small],url' }, function (response) {  // Get board pin information
           console.log("Here is the the list of data of the pins from the board: ");
           console.log(response);
 
