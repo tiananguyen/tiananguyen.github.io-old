@@ -49,7 +49,7 @@ function pinterest() {
 
                 // Display pins
                 var newURL = "\"" + response.data[i].url + "\"";
-                document.getElementById("display").href = newURL; // Display pins
+                document.getElementById("display").href = newURL;
 
                 // Delete duplicates
                 pinsDelete = pinsDelete.concat(response.data[j]);
@@ -69,6 +69,9 @@ function pinterest() {
               response.next();
             }
           }
+          // Display board
+          var newBoard = "\"" + "https://www.pinterest.com/" + user_id + "/" + board_id + "/" + "\"";
+          document.getElementById("board").href = newBoard;
       });
     }
     document.getElementById('show').innerHTML = 'Duplicate pins deleted. Check your Pinterest board!';
