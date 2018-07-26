@@ -48,8 +48,8 @@ function pinterest() {
                 console.log(response.data[i].url); // TEST
 
                 // Display pins
-                var newURL = "\"" + response.data[i].url + "\"";
-                document.getElementById("display").href = newURL;
+                // var newURL = "\"" + response.data[i].url + "\"";
+                document.getElementById("display").href = response.data[i].url;
 
                 // Delete duplicates
                 pinsDelete = pinsDelete.concat(response.data[j]);
