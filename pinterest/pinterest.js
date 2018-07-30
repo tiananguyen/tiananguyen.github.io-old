@@ -23,11 +23,6 @@ function pinterest() {
     } else {
 
       var user_id;
-      PDK.me('/v1/me/', { fields: 'username' }, function(response) { // Get user information
-        console.log("Here is the user information: ");
-        console.log(response);
-        user_id = response.data.username;
-      });
       PDK.request('/v1/me/', { fields: 'username' }, function(response) { // Get user information
         console.log("Here is the user information: ");
         console.log(response);
@@ -36,7 +31,6 @@ function pinterest() {
       document.getElementById('show').innerHTML = 'You are connected! We will now begin the process of deleting duplicate pins.';
 
       // Ask user for which board user wants to search
-      // var user_id = prompt("Please enter your username below");
       var board_id = prompt("Which board do you want to search?");
       var pins = [];
       var pinsDelete = [];
