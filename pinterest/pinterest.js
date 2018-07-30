@@ -74,11 +74,13 @@ function pinterest() {
               response.next();
             }
           }
+          
+          document.getElementById('show').innerHTML = 'Duplicate pins deleted. Check your Pinterest board!';
+
           // Display board
           var newBoard = "\"" + "https://www.pinterest.com/" + user_id + "/" + board_id + "/" + "\"";
           document.getElementById("board").href = newBoard;
       });
     }
-    document.getElementById('show').innerHTML = 'Duplicate pins deleted. Check your Pinterest board!';
   });
 }
