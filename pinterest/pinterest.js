@@ -28,6 +28,11 @@ function pinterest() {
         console.log(response);
         user_id = response.data.username;
       });
+      PDK.request('/v1/me/', { fields: 'username' }, function(response) { // Get user information
+        console.log("Here is the user information: ");
+        console.log(response);
+        user_id = response.data.username;
+      });
       document.getElementById('show').innerHTML = 'You are connected! We will now begin the process of deleting duplicate pins.';
 
       // Ask user for which board user wants to search
