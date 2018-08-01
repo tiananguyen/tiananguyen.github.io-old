@@ -30,6 +30,10 @@ function pinterest() {
       });
       document.getElementById('show').innerHTML = 'You are connected! We will now begin the process of deleting duplicate pins.';
 
+      PDK.request('/v1/me/boards/', { fields: 'id, name, url'}, function(response) { // Get user's boards
+        console.log(response);
+      });
+      
       // Ask user for which board user wants to search
       var board_id = prompt("Which board do you want to search?");
       var pins = [];
